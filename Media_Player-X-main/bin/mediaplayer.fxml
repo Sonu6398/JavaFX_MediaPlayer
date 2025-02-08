@@ -1,0 +1,287 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Slider?>
+<?import javafx.scene.effect.Glow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.media.MediaView?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane minWidth="1280.0" styleClass="background" stylesheets="@style.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller">
+   <bottom>
+      <VBox spacing="5.0" styleClass="bottombar" stylesheets="@style.css" BorderPane.alignment="CENTER">
+         <children>
+            <HBox alignment="CENTER">
+               <children>
+                  <Slider fx:id="timeSlider" minWidth="1150.0" HBox.hgrow="ALWAYS">
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Slider>
+                  <Label fx:id="playTime" style="-fx-text-fill: black;" text="00:00/00:00" />
+               </children>
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+               <padding>
+                  <Insets left="10.0" />
+               </padding>
+            </HBox>
+            <HBox alignment="TOP_CENTER" spacing="20.0">
+               <children>
+                  <Button fx:id="fileChooseButton" mnemonicParsing="false" onAction="#fileChoose" style="-fx-background-color: none; -fx-border-color: none;" textFill="#ef0000" translateY="5.0">
+                     <graphic>
+                        <ImageView fitHeight="25.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../res/folder.png" />
+                           </image>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </ImageView>
+                     </graphic>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor></Button>
+                  <Button fx:id="playlistButton" mnemonicParsing="false" onAction="#openPlaylist" styleClass="playlistbutton" stylesheets="@style.css" text="Playlist" textFill="WHITE" translateY="9.0">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                     <font>
+                        <Font name="System Bold Italic" size="14.0" />
+                     </font></Button>
+                  <Pane prefHeight="43.0" prefWidth="324.0" HBox.hgrow="ALWAYS" />
+                  <Button fx:id="prevBtn" mnemonicParsing="false" onAction="#previous" styleClass="element" stylesheets="@style.css" translateY="2.0">
+                     <graphic>
+                        <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../res/previous.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
+                  <Button fx:id="bwd" mnemonicParsing="false" onAction="#backward" prefHeight="40.0" prefWidth="40.0" style="-fx-background-radius: 20; -fx-border-radius: 20;" styleClass="element" stylesheets="@style.css">
+                     <graphic>
+                        <ImageView fx:id="bwdIMG" fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../res/bwd.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
+                  <Button fx:id="Playbutton" mnemonicParsing="false" onAction="#handle" style="-fx-border-radius: 20; -fx-background-radius: 20; -fx-border-color: none;" styleClass="element" stylesheets="@style.css">
+                     <graphic>
+                        <ImageView fx:id="pausedIMG" fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../res/pause.png" />
+                           </image>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </ImageView>
+                     </graphic>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
+                  <Button fx:id="fwd" mnemonicParsing="false" onAction="#forward" prefHeight="40.0" prefWidth="40.0" style="-fx-background-radius: 20; -fx-border-radius: 20;" styleClass="element" stylesheets="@style.css">
+                     <graphic>
+                        <ImageView fx:id="bwdIMG" fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../res/fwd.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
+                  <Button fx:id="nextBtn" mnemonicParsing="false" onAction="#next" styleClass="element" stylesheets="@style.css" translateY="2.0">
+                     <graphic>
+                        <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../res/next.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
+                  <Button fx:id="stopButton" mnemonicParsing="false" onAction="#stopMedia" prefHeight="40.0" prefWidth="40.0" styleClass="element" stylesheets="@style.css" textFill="#fafafa">
+                     <font>
+                        <Font name="System Bold Italic" size="12.0" />
+                     </font>
+                     <graphic>
+                        <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../res/stop.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                     <effect>
+                        <Glow />
+                     </effect></Button>
+                  <Pane layoutX="190.0" layoutY="15.0" prefHeight="43.0" prefWidth="0.0" HBox.hgrow="ALWAYS" />
+                  <Button fx:id="volICON" contentDisplay="CENTER" mnemonicParsing="false" onAction="#volumeIconfn" prefHeight="40.0" prefWidth="40.0" style="-fx-background-radius: 20; -fx-border-radius: 20; -fx-border-color: none;" styleClass="element" stylesheets="@style.css">
+                     <graphic>
+                        <ImageView fx:id="volIMG" fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../res/vol.png" />
+                           </image>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </ImageView>
+                     </graphic>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
+                  <Slider fx:id="volSlider" translateY="10.0">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor></Slider>
+                  <ComboBox fx:id="speedControl" onAction="#changeSpeed" prefWidth="150.0" promptText="Speed" translateY="5.0">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor></ComboBox>
+               </children>
+               <padding>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </padding>
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+            </HBox>
+         </children>
+         <padding>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+         </padding>
+         <BorderPane.margin>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+         </BorderPane.margin>
+      </VBox>
+   </bottom>
+   <center>
+      <Pane BorderPane.alignment="CENTER">
+      <children>
+            <HBox fx:id="mediapane" prefHeight="650.0" prefWidth="1350.0">
+               <children>
+                  <Pane HBox.hgrow="ALWAYS" />
+                  <MediaView fx:id="mediaView" fitHeight="650.0" fitWidth="1280.0" nodeOrientation="INHERIT" onMouseEntered="#showLabel" onMouseExited="#hideLabel">
+            </MediaView>
+                  <Pane HBox.hgrow="ALWAYS" />
+               </children>
+            </HBox>
+            <HBox fx:id="musicIMGpane" prefHeight="650.0" prefWidth="1350.0">
+               <children>
+                  <Pane prefHeight="650.0" prefWidth="0.0" HBox.hgrow="ALWAYS" />
+                  <ImageView fx:id="musicIMG" fitHeight="650.0" fitWidth="946.0" onMouseEntered="#showLabel" onMouseExited="#hideLabel" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../res/music.jpg" />
+                     </image>
+                  </ImageView>
+                  <Pane layoutX="10.0" layoutY="10.0" prefHeight="650.0" prefWidth="0.0" HBox.hgrow="ALWAYS" />
+               </children>
+            </HBox>
+            <BorderPane fx:id="playlistPane" layoutX="20.0" layoutY="315.0">
+               <center>
+                  <VBox prefHeight="334.0" prefWidth="275.0">
+                     <children>
+                        <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="275.0" style="-fx-background-color: #383838;">
+                           <children>
+                              <Label style="-fx-text-fill: white;" text="Playlist" textFill="WHITE">
+                                 <HBox.margin>
+                                    <Insets left="10.0" right="10.0" />
+                                 </HBox.margin>
+                                 <font>
+                                    <Font name="Arial Bold Italic" size="21.0" />
+                                 </font>
+                              </Label>
+                              <Pane prefHeight="48.0" prefWidth="0.0" HBox.hgrow="ALWAYS" />
+                              <Button fx:id="PlayTheList" mnemonicParsing="false" onAction="#playByTheList" style="-fx-background-radius: 20; -fx-border-radius: 20; -fx-border-color: none; -fx-background-color: none;">
+                                 <graphic>
+                                    <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../res/icon.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                              </Button>
+                              <Button fx:id="addToPlaylistButton" mnemonicParsing="false" onAction="#addOnePlaylist" prefHeight="30.0" prefWidth="30.0" style="-fx-background-color: none;">
+                                 <HBox.margin>
+                                    <Insets left="10.0" />
+                                 </HBox.margin>
+                                 <graphic>
+                                    <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../res/add.png" />
+                                       </image></ImageView>
+                                 </graphic>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                              </Button>
+                              <Button fx:id="closePlaylistButton" contentDisplay="CENTER" graphicTextGap="0.0" mnemonicParsing="false" onAction="#closePlaylistPane" prefHeight="30.0" prefWidth="30.0" style="-fx-background-color: none;">
+                                 <graphic>
+                                    <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../res/closeButton.png" />
+                                       </image></ImageView>
+                                 </graphic>
+                                 <HBox.margin>
+                                    <Insets left="10.0" right="10.0" />
+                                 </HBox.margin>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                              </Button>
+                           </children>
+                        </HBox>
+                        <ScrollPane hbarPolicy="NEVER">
+                           <content>
+                              <VBox fx:id="PlaylistBox" prefHeight="287.0" prefWidth="275.0" />
+                           </content>
+                        </ScrollPane>
+                     </children>
+                  </VBox>
+               </center>
+            </BorderPane>
+            <Label fx:id="MediaTitle" prefHeight="38.0" prefWidth="1334.0" styleClass="outline" stylesheets="@style.css" text="Label">
+               <padding>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </padding>
+               <font>
+                  <Font name="Georgia" size="28.0" />
+               </font>
+            </Label>
+            </children>
+      </Pane>
+   </center>
+</BorderPane>
